@@ -7,4 +7,4 @@ RUN set -x \
       && /bin/sh -c "pip3 --no-cache-dir install jupyter_contrib_nbextensions" \
       && /bin/sh -c "jupyter contrib nbextension install --system" \
       && /bin/sh -c "pip3 --no-cache-dir install jupyter_nbextensions_configurator" \
-      && /bin/sh -c "jupyter contrib nbextension_configurator enable --system"
+      && /bin/sh -c "jupyter nbextension_configurator enable --system"
