@@ -5,4 +5,4 @@ RUN set -x \
       && apt-get update \
       && rm -rf /var/lib/apt/lists/* \
       && /bin/sh -c "pip3 --no-cache-dir install --upgrade pip" \
-      && /bin/sh -c "pip3 --no-cache-dir install tqdm"
+      && /bin/sh -c "pip3 --no-cache-dir install termcolor"
