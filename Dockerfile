@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:focal
 MAINTAINER Teruo Tanimoto <tteruo@kyudai.jp>
 
 SHELL ["/bin/bash", "-c"]
