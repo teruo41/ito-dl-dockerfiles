@@ -1,13 +1,6 @@
 FROM ubuntu:xenial
 MAINTAINER Teruo Tanimoto <tteruo@kyudai.jp>
 
-# RUN set -x \
-#       && apt-get update \
-#       && apt-get -y install python3 python3-pip cmake \
-#       && rm -rf /var/lib/apt/lists/* \
-#       && /bin/sh -c "pip3 --no-cache-dir install --upgrade pip" \
-#       && /bin/sh -c "pip3 --no-cache-dir install qulacs scipy numpy"
-
 SHELL ["/bin/bash", "-c"]
 EXPOSE 8888
 
@@ -32,7 +25,7 @@ RUN set -x \
     && conda create -n ${CONDAENV} ${CONDAPKGS} \
     && source activate ${CONDAENV} \
     && pip install -U pip \
-    && pip install qiskit[visualization]
+    && pip install qiskit[visualization] networkx matplotlib
 COPY launch-jupyter-notebook.sh /entry
 
 ENTRYPOINT ["bash", "/entry/launch-jupyter-notebook.sh"]
