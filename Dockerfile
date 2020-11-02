@@ -1,12 +1,7 @@
 FROM ubuntu:xenial
 MAINTAINER Teruo Tanimoto <tteruo@kyudai.jp>
 
-# RUN set -x \
-#       && apt-get update \
-#       && apt-get -y install python3 python3-pip cmake \
-#       && rm -rf /var/lib/apt/lists/* \
-#       && /bin/sh -c "pip3 --no-cache-dir install --upgrade pip" \
-#       && /bin/sh -c "pip3 --no-cache-dir install qulacs scipy numpy"
+ENV DEBIAN_FRONTEND=noninteractive
 
 SHELL ["/bin/bash", "-c"]
 EXPOSE 8888
