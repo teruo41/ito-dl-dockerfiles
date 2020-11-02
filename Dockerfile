@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:focal
 MAINTAINER Teruo Tanimoto <tteruo@kyudai.jp>
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -13,7 +13,7 @@ RUN set -x \
     && apt-get update \
     && apt-get -y install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 \
         libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 wget \
-        build-essential libboost-program-options1.58-dev \
+        build-essential libboost-program-options-dev cmake \
     && rm -rf /var/lib/apt/lists/* \
     && set -x && mkdir /entry \
     && mkdir /tools \
@@ -27,7 +27,7 @@ RUN set -x \
     && conda create -n ${CONDAENV} ${CONDAPKGS} \
     && source activate ${CONDAENV} \
     && pip install -U pip \
-    && pip install qiskit[visualization]
+    && pip install qiskit[visualization] networkx matplotlib
 COPY launch-jupyter-notebook.sh /entry
 
 ENTRYPOINT ["bash", "/entry/launch-jupyter-notebook.sh"]
